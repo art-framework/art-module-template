@@ -1,3 +1,5 @@
+[![art-framework-badge](https://raw.githubusercontent.com/gist/Silthus/a88fd35b722da343658d54c474c0e5c1/raw/586ba19363678ffc6880de679490f8abb6db3f19/badge.svg)](https://art-framework.io)
+
 # art-module template
 
 Use this template to quickstart your art-module development.
