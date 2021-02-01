@@ -14,19 +14,16 @@ def getHash() {
 
 import org.apache.tools.ant.filters.ReplaceTokens
 
-task sourcesForRelease(type: Copy) {
-    from "${project.rootDir}/src/main/java"
-    into "${project.rootDir}/build/adjustedSrc"
-    filter(ReplaceTokens, tokens: [VERSION: this.version])
+task processSource(type: Sync) {
+    from sourceSets.main.java
+    inputs.property 'version', version
+    filter(ReplaceTokens, tokens: [VERSION: version])
+    into "$buildDir/src"
 }
 
-task compileForRelease(type: JavaCompile, dependsOn: sourcesForRelease) {
-    source = sourcesForRelease.destinationDir
-    classpath = sourceSets.main.compileClasspath
-    destinationDir = file('build/adjustedClasses')
+compileJava {
+    source = processSource.outputs
 }
-
-tasks.publish.dependsOn(compileForRelease)
 
 java {
     withJavadocJar()
