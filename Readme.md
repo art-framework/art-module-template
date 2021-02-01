@@ -14,8 +14,8 @@ Take a look at the [art-framework documentation](https://art-framework.io/#/deve
 
 * Create a new Github project using this template.
 * Clone the new repository and open it in IntelliJ.
-* Update the gradle.properties file and change the following variables:
-    * group: your-maven-group-id (e.g.: io.github.silthus)
-* Update the root.projectName inside settings.gradle. This will be your artifactId.
+* Update the `gradle.properties` file and change the following variables:
+    * `group`: your-maven-group-id (e.g.: io.github.silthus)
+* Update the `root.projectName` inside `settings.gradle`. This will be your artifactId.
 * Rename the java package and module to match your project.
 * Code away :) - and once you are ready, push your commit (in [conventional commit style](https://www.conventionalcommits.org/)) to master.
