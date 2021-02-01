@@ -10,7 +10,7 @@ import io.artframework.annotations.OnReload;
 @ArtModule(
     value = "art-module-template",
     description = "Add a short and precise description about your module here.",
-    version = "1.0.0",
+    version = "@VERSION@",
     prefix = "art-template",
     depends = {
         // add any plugin or module dependencies of your module here

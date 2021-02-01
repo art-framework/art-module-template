@@ -12,6 +12,22 @@ def getHash() {
     return process.text.trim()
 }
 
+import org.apache.tools.ant.filters.ReplaceTokens
+
+task sourcesForRelease(type: Copy) {
+    from "${project.rootDir}/src/main/java"
+    into "${project.rootDir}/build/adjustedSrc"
+    filter(ReplaceTokens, tokens: [VERSION: this.version])
+}
+
+task compileForRelease(type: JavaCompile, dependsOn: sourcesForRelease) {
+    source = sourcesForRelease.destinationDir
+    classpath = sourceSets.main.compileClasspath
+    destinationDir = file('build/adjustedClasses')
+}
+
+tasks.publish.dependsOn(compileForRelease)
+
 java {
     withJavadocJar()
     withSourcesJar()
