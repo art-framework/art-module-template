@@ -1,11 +1,8 @@
 package io.artframework.template;
 
+import io.artframework.Module;
 import io.artframework.Scope;
 import io.artframework.annotations.ArtModule;
-import io.artframework.annotations.OnDisable;
-import io.artframework.annotations.OnEnable;
-import io.artframework.annotations.OnLoad;
-import io.artframework.annotations.OnReload;
 
 @ArtModule(
     value = "art-module-template",
@@ -16,26 +13,27 @@ import io.artframework.annotations.OnReload;
         // add any plugin or module dependencies of your module here
         // "plugin:Vault"
         // "module:custom-parser"
-    }
+    },
+    autoRegisterArt = true
 )
-public class TemplateModule {
-    
-    @OnLoad
+public class TemplateModule implements Module {
+
+    @Override
     public void onLoad(Scope scope) {
 
     }
-    
-    @OnReload
+
+    @Override
     public void onReload(Scope scope) {
 
     }
 
-    @OnEnable
+    @Override
     public void onEnable(Scope scope) {
 
     }
 
-    @OnDisable
+    @Override
     public void onDisable(Scope scope) {
 
     }
